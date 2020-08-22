@@ -3,6 +3,7 @@
 from masonite.view import View
 from masonite.request import Request
 from masonite.controllers import Controller
+from app.inertia.InertiaResponse import InertiaResponse
 
 
 class WelcomeController(Controller):
@@ -19,3 +20,9 @@ class WelcomeController(Controller):
             masonite.view.View -- The Masonite view class.
         """
         return view.render('welcome')
+
+    def inertia(self, view: InertiaResponse):
+        return view.render('Index')
+
+    def helloworld(self, view: InertiaResponse):
+        return view.render('HelloWorld', {'first_name': 'Sam'})
